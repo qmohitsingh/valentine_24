@@ -36,3 +36,89 @@
     transform: rotate(360deg);
   }
 }
+
+.cosmic-background {
+  background: #000; /* Dark background for the space effect */
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes twinkle {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Generate multiple stars with varying sizes and twinkling animation */
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff;
+  width: 2px;
+  height: 2px;
+  opacity: 0.8;
+  animation: twinkle 2s infinite ease-in-out alternate;
+}
+
+/* You can add more stars with different sizes and animation delays for a more natural look */
+.star::before,
+.star::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.star::before {
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  transform: translate(-50%, -50%);
+  animation: twinkle 3s infinite ease-in-out alternate 1s;
+}
+
+.star::after {
+  top: 50%;
+  left: 50%;
+  width: 1px;
+  height: 1px;
+  transform: translate(-50%, -50%);
+  animation: twinkle 1.5s infinite ease-in-out alternate 0.5s;
+}
+
+@keyframes sparkle {
+  0%, 100% { color: #add8e6; text-shadow: 0 0 10px #add8e6; }
+  50% { color: #ffffff; text-shadow: 0 0 20px #ffffff; }
+}
+
+.sparkling-text {
+  animation: sparkle 1s infinite alternate;
+}
+
+@keyframes horizontalShake {
+  0%{
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(20px);
+  }
+  75% {
+    transform: translateX(40px);
+  }
+  100% {
+    transform: translateX(100px);
+  }
+}
+
+.shake-horizontal {
+  animation: horizontalShake 0.5s ease-in-out infinite;
+}
